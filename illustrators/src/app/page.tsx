@@ -2,27 +2,39 @@ import Image from "next/image";
 import Link from "next/link";
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
+//style page specifically for /app/page.tsx
+import './page.css'
 
 export default function Home() {
+
+  
+
   return (
     <main>
       
-    
-      <nav className="mb-3 flex gap-4">
-        <h1 id="homepage-image" className="text-4xl pr-20">Illustrators</h1>
-        <Link href="/login" className="text-blue-500 mt-3 pr-4">Login</Link>
-        <Link href="/sign-up" className="text-blue-500 mt-3 pr-4">Register</Link>
-        <Link href="/profile" className="text-blue-500 mt-3 pr-4">Profile</Link>
-        <Link href="/game" className="text-blue-500 mt-3 pr-4">Game<br></br></Link>
-      </nav>
+    <div className="headerStyles">
+      
+        <img src="/IllustratorsLogo.png" className="headerImage" alt="Illustrators Logo"/>
+
+        <ul className="headerLinks">
+          <li><Link href="/login" className="text-blue-500 mt-3 pr-4"> <b>Login</b> </Link></li>
+          <li><Link href="/sign-up" className="text-blue-500 mt-3 pr-4"><b>Register</b> </Link></li> 
+          <li><Link href="/profile" className="text-blue-500 mt-3 pr-4"><b>Profile</b></Link></li>
+          <li><Link href="/game" className="text-blue-500 mt-3 pr-4"><b>Game</b><br></br></Link></li>
+
+        </ul>
+
+    </div>
 
       <Link 
         href="/lobby"className="mt-4 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">Play!
       </Link>
       
-      <p className= "pt-5">Currently cooking!! <i className="bi bi-fire text-red-500"></i></p>
+      <p className= "pt-5">Maybe Cooking? <i className="bi bi-fire text-red-500"></i></p>
     </main>
   );
+
+ 
 }
 
 // export default function Home() {
