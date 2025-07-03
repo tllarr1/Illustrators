@@ -1,23 +1,31 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import "./App.css"
 
+
 export default function Home() {
+  const handleClick = () => {
+    const audio = new Audio('/sounds/click.wav');
+    audio.volume = 0.5;
+    audio.play().catch((e) => console.warn('Audio play failed:', e));
+  };
+
   return (
     <main>
       
     
       <nav className="mb-3 flex gap-4">
         <h1 id="homepage-image" className="text-4xl pr-20">Illustrators</h1>
-        <Link href="/login" className="links pulse-hover mt-3 pr-4">Login</Link>
-        <Link href="/sign-up" className="links pulse-hover mt-3 pr-4">Register</Link>
-        <Link href="/profile" className="links pulse-hover mt-3 pr-4">Profile</Link>
-        <Link href="/game" className="links pulse-hover mt-3 pr-4">Game<br></br></Link>
+        <Link href="/login" className="links pulse-hover mt-3 pr-4" onClick={handleClick}>Login</Link>
+        <Link href="/sign-up" className="links pulse-hover mt-3 pr-4" onClick={handleClick}>Register</Link>
+        <Link href="/profile" className="links pulse-hover mt-3 pr-4" onClick={handleClick}>Profile</Link>
+        <Link href="/game" className="links pulse-hover mt-3 pr-4" onClick={handleClick}>Game<br></br></Link>
       </nav>
 
       <nav className="center-page">
-        <Link href="/lobby"className="play-btn pulse-hover">Play!</Link>
+        <Link href="/lobby"className="play-btn pulse-hover" onClick={handleClick}>Play!</Link>
       </nav>
       
       

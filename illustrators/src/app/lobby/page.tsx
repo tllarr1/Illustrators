@@ -10,6 +10,8 @@ export default function LobbyPage() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
+  
+
   // Session check with guest fallback
   useEffect(() => {
     async function fetchSession() {
@@ -59,13 +61,21 @@ export default function LobbyPage() {
     localStorage.setItem('guestId', userId);
     router.push(`/game/${code}`);
   };
-
+  const handleClick = () => {
+    const audio = new Audio('/sounds/click.wav');
+    audio.volume = 0.5;
+    audio.play().catch((e) => console.warn('Audio play failed:', e));
+  };
   const handleCreate = async () => {
     if (!nickname.trim()) {
       alert('Please enter a nickname');
       return;
     }
-
+    /*Used to add the click sound with create*/
+  const handleClickCreate = () => {
+    handleClick();
+    handleCreate();
+     };
     localStorage.setItem('guestName', nickname.trim());
     localStorage.setItem('guestId', userId);
 
@@ -115,7 +125,7 @@ export default function LobbyPage() {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700" onClick={handleClick}
           >
             Join Lobby
           </button>
@@ -123,8 +133,9 @@ export default function LobbyPage() {
       </div>
 
       <button
+      /*Get handleCreateClick to work here*/
         onClick={handleCreate}
-        className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700"
+        className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700" 
       >
         Create New Lobby
       </button>
