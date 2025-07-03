@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
-
+import "./App.css"
 
 export default function Home() {
   return (
@@ -10,17 +10,17 @@ export default function Home() {
     
       <nav className="mb-3 flex gap-4">
         <h1 id="homepage-image" className="text-4xl pr-20">Illustrators</h1>
-        <Link href="/login" className="text-blue-500 mt-3 pr-4">Login</Link>
-        <Link href="/sign-up" className="text-blue-500 mt-3 pr-4">Register</Link>
-        <Link href="/profile" className="text-blue-500 mt-3 pr-4">Profile</Link>
-        <Link href="/game" className="text-blue-500 mt-3 pr-4">Game<br></br></Link>
+        <Link href="/login" className="links pulse-hover mt-3 pr-4">Login</Link>
+        <Link href="/sign-up" className="links pulse-hover mt-3 pr-4">Register</Link>
+        <Link href="/profile" className="links pulse-hover mt-3 pr-4">Profile</Link>
+        <Link href="/game" className="links pulse-hover mt-3 pr-4">Game<br></br></Link>
       </nav>
 
-      <Link 
-        href="/lobby"className="mt-4 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">Play!
-      </Link>
+      <nav className="center-page">
+        <Link href="/lobby"className="play-btn pulse-hover">Play!</Link>
+      </nav>
       
-      <p className= "pt-5">Currently cooking!! <i className="bi bi-fire text-red-500"></i></p>
+      
     </main>
   );
 }

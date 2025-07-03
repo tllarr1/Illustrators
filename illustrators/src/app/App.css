@@ -1,0 +1,42 @@
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.play-btn {
+  width: 200px;
+  height: 100px;
+  background-color: #1e90ff;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links {
+    color: rgb(64, 61, 253);
+}
+
+.pulse-hover {
+  /* No animation by default */
+  transition: transform 0.2s ease;
+}
+
+.pulse-hover:hover {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
