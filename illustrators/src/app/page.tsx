@@ -3,17 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import Header from './components/Header.jsx'; //Importing the header component
-import "./App.css"
+
 
 //style page specifically for /app/page.tsx
 import './page.css'
+import "./App.css"
 
 export default function Home() {
-  const handleClick = () => {
+const handleClick = () => {
     const audio = new Audio('/sounds/click.wav');
     audio.volume = 0.5;
     audio.play().catch((e) => console.warn('Audio play failed:', e));
   };
+
   
 
   return (
@@ -25,7 +27,7 @@ export default function Home() {
       <Header />
 
     </header>
- 
+
 
     <main className="flex flex-col items-center justify-center">  
       <img src="/IllustratorsMainTitle.gif" alt="Illustrators Main Title"/>

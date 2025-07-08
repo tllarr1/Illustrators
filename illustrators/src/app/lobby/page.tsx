@@ -60,7 +60,11 @@ export default function LobbyPage() {
     localStorage.setItem('guestId', userId);
     router.push(`/game/${code}`);
   };
-
+  const handleClick = () => {
+    const audio = new Audio('/sounds/click.wav');
+    audio.volume = 0.5;
+    audio.play().catch((e) => console.warn('Audio play failed:', e));
+  };
   const handleCreate = async () => {
     if (!nickname.trim()) {
       alert('Please enter a nickname');
@@ -119,13 +123,13 @@ export default function LobbyPage() {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"onClick={handleClick}
           >
             Join Lobby
           </button>
         </form>
       </div>
-
+        
       <button
         onClick={handleCreate}
         className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700"
