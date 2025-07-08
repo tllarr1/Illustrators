@@ -1,13 +1,19 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import Header from './components/Header.jsx'; //Importing the header component
+import "./App.css"
 
 //style page specifically for /app/page.tsx
 import './page.css'
 
 export default function Home() {
-
+  const handleClick = () => {
+    const audio = new Audio('/sounds/click.wav');
+    audio.volume = 0.5;
+    audio.play().catch((e) => console.warn('Audio play failed:', e));
+  };
   
 
   return (
@@ -19,13 +25,13 @@ export default function Home() {
       <Header />
 
     </header>
-
+ 
 
     <main className="flex flex-col items-center justify-center">  
       <img src="/IllustratorsMainTitle.gif" alt="Illustrators Main Title"/>
       <Link 
         href="/lobby"
-        className="mt-4 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">Play!</Link>
+        className="play-btn pulse-hover" onClick={handleClick}>Play!</Link>
       
       <p className= "pt-5 text-black">Now in color!! <i className="bi bi-fire text-red-500"></i></p>
     </main>
